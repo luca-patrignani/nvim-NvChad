@@ -9,15 +9,33 @@ M.general = {
 
 M.dap = {
   n = {
-    ["<F10>"] = {
+    ["<F5>"] = {
       function()
         require("dap").continue()
       end,
       "continue debugging",
     },
-    ["<F8>"] = {
+    ["<F9>"] = {
       function()
         require("dap").toggle_breakpoint()
+      end,
+      "toggle breakpoint",
+    },
+    ["<F12>"] = {
+      function()
+        require("dap").step_into()
+      end,
+      "toggle breakpoint",
+    },
+    ["<F24>"] = { -- <F24> means Shift + F12
+      function()
+        require("dap").step_out()
+      end,
+      "toggle breakpoint",
+    },
+    ["<F10>"] = {
+      function()
+        require("dap").step_over()
       end,
       "toggle breakpoint",
     },
