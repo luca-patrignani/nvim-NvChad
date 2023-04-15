@@ -274,7 +274,6 @@ local default_plugins = {
   },
   {
     "mfussenegger/nvim-dap",
-    lazy = false,
     config = function()
       local dap = require "dap"
       dap.configurations.go = {
@@ -309,13 +308,25 @@ local default_plugins = {
         },
       }
     end,
+    init = function()
+      local dap, dapui = require "dap", require "dapui"
+      dap.listeners.after.event_initialized["dapui_config"] = function()
+        dapui.open()
+      end
+      dap.listeners.before.event_terminated["dapui_config"] = function()
+        dapui.close()
+      end
+      dap.listeners.before.event_exited["dapui_config"] = function()
+        dapui.close()
+      end
+    end,
   },
   {
     "leoluz/nvim-dap-go",
   },
   {
     "rcarriga/nvim-dap-ui",
-    dependencies = "mfussenegger/nvim-dap",
+    dependencies = { "mfussenegger/nvim-dap", "folke/neodev.nvim" },
     lazy = false,
     config = {
       icons = { expanded = "▾", collapsed = "▸", current_frame = "▸" },
@@ -376,7 +387,6 @@ local default_plugins = {
   },
   {
     "folke/neodev.nvim",
-    lazy = false,
     config = {
       library = { plugins = { "nvim-dap-ui" }, types = true },
     },
