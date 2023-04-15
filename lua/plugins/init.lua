@@ -59,6 +59,9 @@ local default_plugins = {
       dofile(vim.g.base46_cache .. "devicons")
       require("nvim-web-devicons").setup(opts)
     end,
+    init = function()
+      require("core.utils").lazy_load "nvim-web-devicons"
+    end,
   },
 
   {
@@ -216,6 +219,7 @@ local default_plugins = {
     cmd = { "NvimTreeToggle", "NvimTreeFocus" },
     init = function()
       require("core.utils").load_mappings "nvimtree"
+      vim.cmd("NvimTreeToggle")
     end,
     opts = function()
       return require "plugins.configs.nvimtree"
