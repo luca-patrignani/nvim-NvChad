@@ -7,7 +7,7 @@ M.general = {
   },
 }
 
-M.dap = {
+M.debug = {
   n = {
     ["<F5>"] = {
       function()
@@ -25,19 +25,19 @@ M.dap = {
       function()
         require("dap").step_into()
       end,
-      "toggle breakpoint",
+      "step into",
     },
     ["<F24>"] = { -- <F24> means Shift + F12
       function()
         require("dap").step_out()
       end,
-      "toggle breakpoint",
+      "step out",
     },
     ["<F10>"] = {
       function()
         require("dap").step_over()
       end,
-      "toggle breakpoint",
+      "step over",
     },
   },
 }
