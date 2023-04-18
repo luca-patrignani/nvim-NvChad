@@ -271,7 +271,7 @@ local default_plugins = {
   {
     "Pocco81/auto-save.nvim",
     cmd = "ASToggle",
-    config = {
+    opts = {
       enabled = false,
     },
   },
@@ -331,7 +331,7 @@ local default_plugins = {
     "rcarriga/nvim-dap-ui",
     dependencies = { "mfussenegger/nvim-dap", "folke/neodev.nvim" },
     lazy = false,
-    config = {
+    opts = {
       icons = { expanded = "▾", collapsed = "▸", current_frame = "▸" },
 
       -- Expand lines larger than the window
@@ -382,7 +382,7 @@ local default_plugins = {
   },
   {
     "folke/neodev.nvim",
-    config = {
+    opts = {
       library = { plugins = { "nvim-dap-ui" }, types = true },
     },
   },
