@@ -174,7 +174,7 @@ local default_plugins = {
 
   {
     "numToStr/Comment.nvim",
-    -- keys = { "gc", "gb" },
+    keys = { "gcc", "gbc" },
     init = function()
       require("core.utils").load_mappings "comment"
     end,
@@ -226,7 +226,7 @@ local default_plugins = {
   -- Only load whichkey after all the gui
   {
     "folke/which-key.nvim",
-    keys = { "<leader>", '"', "'", "`" },
+    keys = { "<leader>", '"', "'", "`", "c", "v" },
     init = function()
       require("core.utils").load_mappings "whichkey"
     end,
